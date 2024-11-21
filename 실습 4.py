@@ -21,7 +21,9 @@ class CircularQueue:
     def dequeue(self):
         if not self.isEmpty():
             self.front = (self.front + 1) % self.capacity
-            return self.array[self.front]
+            removed_item = self.array[self.front]
+            self.array[self.front] = None  # 삭제된 요소를 None으로 설정
+            return removed_item
         else:
             print("큐가 비어 있습니다.")
             return None
